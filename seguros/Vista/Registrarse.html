@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="../Estilo/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link href="../Estilo/CssPropia/Estilo.css" rel="stylesheet" media="screen"/>
+    <title>Registrarse</title>
+</head>
+<body class="Fondo">
+<?php
+include('../Header.php')
+?>
+<div class="container">
+    <div class="Fondo1">
+        <div style="background:white"><img class="img-responsive" src="../img/barra_top.png" alt="Logo"></div>
+        <!-- Diseño de formulario para el registro de usuarios -->
+        <div class="panel-heading">
+            <h2>Registrar Datos de usuario</h2>
+            <div class="panel-body">
+                <form method="post" action="../Controlador/RegistrarseControlador.php">
+                    <span>
+                        <input type="text" name="fullname" required="required" class="form-control" placeholder="Nombres y Apellidos">
+                        <br>
+                    </span>
+                    <span>
+                        <input type="email" name="correo" required="required" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" class="form-control" placeholder="Correo Electronico">
+                        <br>
+                    </span>
+                    <span>
+                        <input type="text" name="username" required="required" class="form-control" placeholder="Nombre de usuario">
+                        <br>
+                    </span>
+                    <span>
+                        <input type="password" name="password" required="required" class="form-control" placeholder="Contraseña">
+                        <br>
+                    </span>
+                    <span>
+                        <input type="submit" name="registrar" class="btn btn-info" value="Registrarse">
+                        <br>
+                    </span>
+                </form>               
+            </div>  <!-- fin del panel body -->
+        </div>      <!-- fin del panel heading -->
+    </div>          <!-- fin de la div que aplica el color de fondo -->
+</div>              <!-- fin del panel container -->
+
+</body>
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">   <!--Inicia la pagina con esto desde aqui hasta-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="../Estilo/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link href="../Estilo/CssPropia/Estilo.css" rel="stylesheet" media="screen"/>
+    <title>Seguro Medico</title>  <!--cambiar el nombre del titulo respecto al seguro-->
+    
+</head>                     
+<body class="Fondo">
+<?php
+include('../Header.php')
+?>
+                                  
+<div class="container">
+    <div class="panel-primary">
+               
+			<!--Nueva Parte--> <!-- Diseño para presentar quien abrio sesión en el encabezado de la página -->
+        <header class="fondologo">
+            <span class="pull-right ColorBienvenida">
+               <?php
+                    echo "Bienvenido " . $_SESSION['usuario'];
+               ?>
+            </span>
+			<div style="background:white">
+			<img src="../img/barra_top.png" alt="Logo" class="img-responsive"></div>
+       </header>
+		<!--hasta aqui nueva Parte-->
+            
+                                                    
+        <div class="panel-heading">
+            <h2 align="center">Solicitar Seguro Medico</h2><br/>      <!--cambiar el nombre el seguro a solicitar -->
+           <figure align="center">
+		    <img src="../img/seguro-medico.jpg" class="imagen">
+			</figure><!--ingresar el nombre de la imagen que usaron
+            con extension-ejemplo nombre:obligatorio.jpg-->
+              <h4 align="center">¿Que es Seguro Medico?</h4><br/>
+ 	          <p>
+				Permite disponer de amplios servicios médicos al personal de la empresa que adquiere este seguro.<br/><br/>
+            
+              </p>
+             
+             
+              <h4 align="center"> ¿Que cubre este Seguro? </h4>
+			  <p>
+                  <ul>
+                    <li>Otorga cobertura de gastos médicos incurridos por enfermedad o accidente, consulta a especialistas, pruebas médicas, tratamientos, intervenciones quirúrgicas y de un completo cuadro de profesionales</li>
+                    <li>Con total flexibilidad, con un trato personalizado y de calidad, y con las técnicas más avanzadas. Protegiendo la salud del Talento Humano que se encuentra laborando para la empresa contratante</li>
+                   </ul>
+             </p>
+			 
+			   <h4 align="center"> Beneficios </h4>
+			 <p>
+                  <ul>
+                    <li>Consulta y control de Papanicolaou</li>
+                    <li>Examen de PSA</li>
+					<li>Examen de PSA</li>
+                   </ul>
+             </p>
+            
+            <div class="panel-body">               <!--hasta aqui es igual en todas las paginas-->
+                <form method="post" action="../Controlador/MedicoControlador.php"> <!--Cambiar por el nombre del archiv controlador
+                que pertenece a este formulario ejemplo:ObligatorioControlador--> 
+                  <h3> Datos Personales</h3> <!--Se agrega esto para diferencia las categoria de datos si son datos de usuario o de la empresa-->
+                   
+                   <!--PRIMERA FILA-->
+                    <span>  <!--Nota:Un span es una linea-->
+                        <table  style="border-collapse: separate; border-spacing: 10px"> <!--tabla determina filas y columnas-->
+                          
+                         <tr>  <!--se abre fila-->
+                           <th>Nombre/Apellidos</th>  <!--se abre y cierra encabezado-->
+                           <th>Cedula</th>
+                           <th>Fecha de Nacimiento</th>
+                           <th>Telefono</th>
+                           <th>Email</th>
+                           <th>Direccion</th>
+                        </tr> <!--se cierra fila-->
+
+                          <tr> <!--no cambiar style="color:black" de abajo-->
+                            <td style="color:black"><input type="text" size="17" name="nom" required="required" maxlength="25" placeholder="Carlos Salamanca"></td>
+                            <td style="color:black"><input type="text" size="13" name="cedula" required="required" maxlength="16" placeholder="281-240568-0058S"> </td>
+                            <td style="color:black"><input type="text" size="12" name="fechanac" required="required" maxlength="30" placeholder="28-Feb-1994"></td>
+                            <td style="color:black"><input type="text" size="10" name="tel" required="required" maxlength="8" placeholder="22281908"></td>
+                            <td style="color:black"><input type="text" size="25" name="correo" required="required" maxlength="30" placeholder="Example_nicaragua@gmail.com" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"></td>
+                            <td style="color:black"><input type="text" size="40" name="dir" required="required" maxlength="100" placeholder="Polideportivo España 1c arriba"></td>
+                          </tr>
+                          
+                        </table>
+                        
+                        <br>
+                    </span>
+                    
+                     <!--SEGUNDA FILA-->
+                    
+                     <span>
+                        <table style="border-collapse: separate; border-spacing: 10px">
+                            <tr>
+                               <th>Sexo</th>  <!--se abre y cierra encabezado-->
+                               <th>Estado Civil</th>
+                                                        
+                            </tr>
+
+                             <tr>
+                                <td style="color:black"> <select name="sexo" required> <!--este es un select cajta para selccion "poner required"-->
+                                  <option selected value="">Seleccione una opcion</option> <!--se debe poner esta opcion sin valor para
+                                  poder ser requerida cuando se presione el boton que esta al final -->
+                                  <option> Femenino </option>
+                                  <option> Masculino </option>
+                                      </select>
+                                </td>
+								<td style="color:black"> <select name="civil" required> <!--este es un select cajta para selccion "poner required"-->
+                                  <option selected value="">Seleccione una opcion</option> <!--se debe poner esta opcion sin valor para
+                                  poder ser requerida cuando se presione el boton que esta al final -->
+                                  <option> Soltero/a </option>
+                                  <option> Casado/a </option>
+								  <option> Union Estable </option>
+                                      </select>
+                                </td>
+                                
+                             </tr>
+                       </table>
+                        <br>
+                    </span>
+                     
+                     
+                    <h3> Otros Datos</h3>
+                     <!--TERCERA FILA-->
+                     
+                    <span>
+                      <table style="border-collapse: separate; border-spacing: 10px">
+                        <tr>
+                               <th>Nombre y Apellido(Padre)</th>
+							    <th>Ced.Identidad (Padre)</th>
+								<th>Nombre y Apellido(Madre)</th>
+							    <th>Ced.Identidad (Madre)</th>
+								<th>Nombre y Apellido(Conyuge)</th>
+							    <th>Ced.Identidad (Conyuge)</th>
+                            
+                                                         
+                        </tr>
+                        
+                        <tr>
+                          <td style="color:black"><input type="text" size="17" name="nompadre" required="required" maxlength="25" placeholder="Carlos Salamanca"></td>
+						  <td style="color:black"><input type="text" size="13" name="cedulapadre" required="required" maxlength="16" placeholder="281-240568-0058S"> </td>
+						  <td style="color:black"><input type="text" size="17" name="nommadre" required="required" maxlength="25" placeholder="Sara Canales"></td>
+						  <td style="color:black"><input type="text" size="13" name="cedulamadre" required="required" maxlength="16" placeholder="281-240568-0058S"> </td>
+						  <td style="color:black"><input type="text" size="17" name="nomconyuge"  maxlength="25" placeholder="Pedro/Maria"></td>
+						  <td style="color:black"><input type="text" size="13" name="cedulaconyuge" maxlength="16" placeholder="281-240568-0058S"> </td> 
+                        </tr>
+						</table>
+                        
+                    <br>
+                    </span>                    
+                                                        
+                                          
+                      <span>
+                              <input type="submit" name="solicitar" class="btn btn-info" value="Agregar">
+                        <br>
+                    </span>
+                </form>
+				<!--Nueva Parte-->
+				 <section>
+					
+					
+                    <form action="../Controlador/MedicoControlador.php" method="post"> <!--cambiar aqui nombre por el controlador-->
+                        <span><input type="text" placeholder="Buscar...." size="50" name="texto" style="color: black;"></span>
+                        <input class="btn btn-info" type="submit" name="buscar" value="Buscar">
+                    </form>
+                    <section>
+                        <h3>Asegurados de Seguro Medico</h3>
+						
+						<!---TABLA 1-->
+                        <table class="table table-responsive FondoTabla">
+                            <thead>   <!-- Encabezado de la tabla --> <!--agregar encabezado como los de arriba de 5 en 5-->
+                                <tr style="color: white">
+                                    <td>Id</td>
+                                    <td>Nombre </td>
+                                    <td>Cedula</td>
+                                    <td>Fecha Nac</td>
+                                    <td>Telefono</td>
+                                 </tr>
+                            </thead>
+														
+							
+                            <tbody>   <!-- Cuerpo de la tabla donde se presentara la información-->
+                                <?php
+                                    //Inicio del ciclo que lee los datos para posicionarlo en su repectiva columna y celda
+                                    foreach($seguromedico as $item=>$valor){  //nombre en vez de "clientes" nombre de la base de datos"
+                                ?>
+                                
+                                <?php
+                                        //If que validad si se va editar algún registro
+                                        if($editarseguromedico){    //nombre en vez de "clientes" nombre de la base de datos"
+                                            //If que valida si es el registro que se tiene que editar es el que se selecciono
+                                            if($valor['id']==$editarid){     //nombre en vez de "id_clie", el id 
+                                ?>
+                                                
+                                                <form action="../Controlador/MedicoControlador.php?pagina=<?php echo $_SESSION['numpagina'];  ?>" method="post"> <!--cambiar el nombre del controlar respecto a esta vista-->
+                                                    <tr style="color: white">
+                                                        <td><input class="form-control" type="text" value="<?php echo $valor['id'] ?>"></td>   <!--ingrese el el campo de valor segun tabla-->
+                                                        <td><input class="form-control" name="nom" type="text" value="<?php echo $valor['nom'] ?>"></td> <!--ingrese mismo name de siempre y el valor de la tabla igual hacia abjao-->
+                                                        <td><input class="form-control" name="cedula" type="text" value="<?php echo $valor['cedula'] ?>"></td>
+                                                        <td><input class="form-control" name="fechanac" type="text" value="<?php echo $valor['fechanac'] ?>"></td>
+                                                        <td><input class="form-control" name="tel" type="text" value="<?php echo $valor['tel'] ?>"></td>
+
+                                                     </tr>
+                                                    
+                                                    
+                                                </form>
+                                                
+                                                
+
+                                <?php
+                                            //Final del if que valida si se va editar registro del gastosmedicos seleccionado //cambiar cliente por nombre de formulario vista
+                                            }
+                                ?>
+                                <?php
+                                         //El caso contrario que no se quiera editar registros   
+                                        }else{
+                                ?>
+                                
+                                            <tr style="color: white">
+                                                <td><?php echo $valor['id'] ?></td>
+                                                <td><?php echo $valor['nom'] ?></td> <!--ingrese el el campo de valor segun tabla-->
+                                                <td><?php echo $valor['cedula'] ?></td>
+                                                <td><?php echo $valor['fechanac'] ?></td>
+                                                <td><?php echo $valor['tel'] ?></td>
+									</tr>
+                                
+                                <?php
+                                        }   //Fin del if que validad si se quiere editar algun registro
+                                ?>
+                                <?php
+                                    }   //Fin del foreach
+                                ?>
+                            </tbody>
+                        </table>
+						
+						<nav>
+                            <div class="center-block">
+                                <ul class="pagination">
+                                    <?php
+                                        $url="../Controlador/MedicoControlador.php";  //cambiar el nombre del controlar 
+                                        if ($TotPaginas > 1)
+                                        {
+                                            for ($i=1;$i<=$TotPaginas;$i++) {
+                                                echo ' <li> <a href="'.$url.'?pagina='.$i.'">'.$i.'</a></li>  ';
+                                            }
+                                        }
+                                    ?>
+                                </ul>
+                            </div>
+                        </nav>
+						
+						<!---TABLA 2-->
+						  <table class="table table-responsive FondoTabla">
+                            <thead>   <!-- Encabezado de la tabla --> <!--agregar encabezado como los de arriba de 5 en 5-->
+                                <tr style="color: white">
+                                    <td>Email</td>
+									<td>Direccion</td>
+									<td>Sexo</td>
+                                    <td>Civil</td>
+                                    <td>Nom-Padre</td>
+                                 </tr>
+                            </thead>
+														
+							
+                            <tbody>   <!-- Cuerpo de la tabla donde se presentara la información-->
+                                <?php
+                                    //Inicio del ciclo que lee los datos para posicionarlo en su repectiva columna y celda
+                                    foreach($seguromedico as $item=>$valor){  //nombre en vez de "clientes" nombre de la base de datos"
+                                ?>
+                                
+                                <?php
+                                        //If que validad si se va editar algún registro
+                                        if($editarseguromedico){    //nombre en vez de "clientes" nombre de la base de datos"
+                                            //If que valida si es el registro que se tiene que editar es el que se selecciono
+                                            if($valor['id']==$editarid){     //nombre en vez de "id_clie", el id 
+                                ?>
+                                                
+                                                <form action="../Controlador/MedicoControlador.php?pagina=<?php echo $_SESSION['numpagina'];  ?>" method="post"> <!--cambiar el nombre del controlar respecto a esta vista-->
+                                                    <tr style="color: white">
+                                                        <td><input class="form-control" name="correo" value="<?php echo $valor['correo'] ?>"></td>  
+													    <td><input class="form-control" name="dir" value="<?php echo $valor['dir'] ?>"></td>  
+														<td><input class="form-control" name="sexo" value="<?php echo $valor['sexo'] ?>"></td>   <!--ingrese el el campo de valor segun tabla-->
+                                                        <td><input class="form-control" name="civil" type="text" value="<?php echo $valor['civil'] ?>"></td> <!--ingrese mismo name de siempre y el valor de la tabla igual hacia abjao-->
+                                                        <td><input class="form-control" name="nompadre" type="text" value="<?php echo $valor['nompadre'] ?>"></td>
+                                                        
+                                                    </tr>
+                                                    
+                                                    
+                                                </form>
+                                                
+                                                
+
+                                <?php
+                                            //Final del if que valida si se va editar registro del gastosmedicos seleccionado //cambiar cliente por nombre de formulario vista
+                                            }
+                                ?>
+                                <?php
+                                         //El caso contrario que no se quiera editar registros   
+                                        }else{
+                                ?>
+                                
+                                            <tr style="color: white">
+                                                <td><?php echo $valor['correo'] ?></td>
+												<td><?php echo $valor['dir'] ?></td>
+												<td><?php echo $valor['sexo'] ?></td>
+                                                <td><?php echo $valor['civil'] ?></td> <!--ingrese el el campo de valor segun tabla-->
+                                                <td><?php echo $valor['nompadre'] ?></td>
+                                                
+                                                
+                                            </tr>
+                                
+                                <?php
+                                        }   //Fin del if que validad si se quiere editar algun registro
+                                ?>
+                                <?php
+                                    }   //Fin del foreach
+                                ?>
+                            </tbody>
+                        </table>
+						  
+						  <nav>
+                            <div class="center-block">
+                                <ul class="pagination">
+                                    <?php
+                                        $url="../Controlador/MedicoControlador.php";  //cambiar el nombre del controlar 
+                                        if ($TotPaginas > 1)
+                                        {
+                                            for ($i=1;$i<=$TotPaginas;$i++) {
+                                                echo ' <li> <a href="'.$url.'?pagina='.$i.'">'.$i.'</a></li>  ';
+                                            }
+                                        }
+                                    ?>
+                                </ul>
+                            </div>
+                        </nav>
+						  
+						  <!---TABLA 3-->
+						  <table class="table table-responsive FondoTabla">
+                            <thead>   <!-- Encabezado de la tabla --> <!--agregar encabezado como los de arriba de 5 en 5-->
+                                <tr style="color: white">
+                                    <td>Ced-Padre</td>
+									<td>Nom.Madre</td>
+									<td>Ced-Madre</td>
+									<td>Nom-Conyuge</td>
+									<td>Ced.Conyuge</td>
+                                    <td>Editar</td>
+                                    <td>Eliminar</td>
+                                </tr>
+                            </thead>
+														
+							
+                            <tbody>   <!-- Cuerpo de la tabla donde se presentara la información-->
+                                <?php
+                                    //Inicio del ciclo que lee los datos para posicionarlo en su repectiva columna y celda
+                                    foreach($seguromedico as $item=>$valor){  //nombre en vez de "clientes" nombre de la base de datos"
+                                ?>
+                                
+                                <?php
+                                        //If que validad si se va editar algún registro
+                                        if($editarseguromedico){    //nombre en vez de "clientes" nombre de la base de datos"
+                                            //If que valida si es el registro que se tiene que editar es el que se selecciono
+                                            if($valor['id']==$editarid){     //nombre en vez de "id_clie", el id 
+                                ?>
+                                                
+                                                <form action="../Controlador/MedicoControlador.php?pagina=<?php echo $_SESSION['numpagina'];  ?>" method="post"> <!--cambiar el nombre del controlar respecto a esta vista-->
+                                                    <tr style="color: white">
+                                                        <td><input class="form-control" name="cedulapadre" value="<?php echo $valor['cedulapadre'] ?>"></td>   <!--ingrese el el campo de valor segun tabla-->
+														<td><input class="form-control" name="nommadre" value="<?php echo $valor['nommadre'] ?>"></td>   <!--ingrese el el campo de valor segun tabla-->
+													    <td><input class="form-control" name="cedulamadre" value="<?php echo $valor['cedulamadre'] ?>"></td>   <!--ingrese el el campo de valor segun tabla-->
+														<td><input class="form-control" name="nomconyuge" value="<?php echo $valor['nomconyuge'] ?>"></td>   <!--ingrese el el campo de valor segun tabla-->
+														<td><input class="form-control" name="cedulaconyuge" value="<?php echo $valor['cedulaconyuge'] ?>"></td>   <!--ingrese el el campo de valor segun tabla-->
+                                                       
+                                                        
+
+                                                        <td><input class="btn-primary" type="submit" name="opcion" value="guardar"></td>
+                                                        <td><input type="hidden" name="id" value="<?php echo $valor['id'] ?>"></td> <!--ingrese el el campo de valor segun tabla en vez de id_clie-sea id-->
+                                                        <td><a class="btn-primary" href="../Controlador/MedicoControlador.php?opcion=cancelar<?php echo '&pagina=' . $_SESSION['numpagina']; ?>">Cancelar</a></td> <!--cambiar el nombre del controlar respecto a esta vista-->
+                                                    </tr>
+                                                    
+                                                    
+                                                </form>
+                                                
+                                                
+
+                                <?php
+                                            //Final del if que valida si se va editar registro del gastosmedicos seleccionado //cambiar cliente por nombre de formulario vista
+                                            }
+                                ?>
+                                <?php
+                                         //El caso contrario que no se quiera editar registros   
+                                        }else{
+                                ?>
+                                
+                                            <tr style="color: white">
+												<td><?php echo $valor['cedulamadre'] ?></td>
+												<td><?php echo $valor['nomconyuge'] ?></td>
+                                                <td><?php echo $valor['cedulaconyuge'] ?></td>                                            
+                                               
+                                                <td><a class="btn-primary" href="../Controlador/MedicoControlador.php?opcion=editar&id=<?php echo $valor['id'] . '&pagina=' . $_SESSION['numpagina']; ?>">Editar</a></td>  <!--ingrese el el campo de valor segun tabla en vez de id_clie-sea id-->
+                                                <td><a class="btn-primary" href="../Controlador/MedicoControlador.php?opcion=eliminar&id=<?php echo $valor['id'] . '&pagina=' . $_SESSION['numpagina']; ?>">Eliminar</a></td>  <!--ingrese el el campo de valor segun tabla en vez de id_clie-sea id-->
+                                            </tr>
+                                
+                                <?php
+                                        }   //Fin del if que validad si se quiere editar algun registro
+                                ?>
+                                <?php
+                                    }   //Fin del foreach
+                                ?>
+                            </tbody>
+                        </table>
+                        <!-- Aqui vendrá la parte de paginación -->
+                        <nav>
+                            <div class="center-block">
+                                <ul class="pagination">
+                                    <?php
+                                        $url="../Controlador/MedicoControlador.php";  //cambiar el nombre del controlar 
+                                        if ($TotPaginas > 1)
+                                        {
+                                            for ($i=1;$i<=$TotPaginas;$i++) {
+                                                echo ' <li> <a href="'.$url.'?pagina='.$i.'">'.$i.'</a></li>  ';
+                                            }
+                                        }
+                                    ?>
+                                </ul>
+                            </div>
+                        </nav>
+                    </section>
+					<!--hasta aqui nueva Parte-->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+

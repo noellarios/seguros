@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="../Estilo/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link href="../Estilo/CssPropia/estilo.css" rel="stylesheet" media="screen"/>
+    
+    <link rel="stylesheet" href="../Estilo/css/alertify.core.css" />
+	<link rel="stylesheet" href="../Estilo/css/alertify.default.css" id="toggleCSS" />
+    
+    <script src="../JQuery/jalertify.min.js"></script>
+    <script src="../JQuery/jquery.js"></script>
+    
+    <title>Autenticarse</title>
+    
+    <script>
+        $(document).ready(function(){
+            $("#simple_alert").click(function(){
+                alertify.alert("Bienvenido");
+            });
+        });
+    </script>
+    
+</head>
+<body>
+
+<?php
+    include('../Header.php');
+?>
+
+<div class="modal-dialog Fondo">
+    <div class="modal-content Fondo1">
+        <div class="modal-header">
+            <h1 class="text-center">Inicio de Sesión</h1>
+        </div>
+        <div class="modal-body">
+            <form class="col-xs-12 col-sm-12 col-md-12 center-block" method="post" action="../Controlador/LoginControlador.php">
+                <div class="form-group">
+                    <label class="form-control input-lg">Nombre de Usuario</label>
+                    <input type="text" name="username" class="form-control input-lg">
+                </div>
+                <div class="form-group">
+                    <label class="form-control input-lg">Contraseña</label>
+                    <input type="password" name="pass" class="form-control input-lg">
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Login" name="login" class="btn btn-success form-control input-lg">
+                    <span class="pull-right"><a onclick="window.location = '../Controlador/RegistrarseControlador.php'" href="##" class="ColorLetra">Registrarse</a> </span>
+                </div>
+
+            </form>
+            <div class="modal-footer">
+                <button class="btn btn-success" onclick="window.location = '../index.php'" name="cancelar">Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<?php
+include('../pie.php')
+?>
+
+</body>
+</html>

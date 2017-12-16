@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">   <!--Inicia la pagina con esto desde aqui hasta-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="../Estilo/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link href="../Estilo/CssPropia/Estilo.css" rel="stylesheet" media="screen"/>
+    <title>Reporte de Seguros</title>  <!--cambiar el nombre del titulo respecto al seguro-->
+    
+</head>
+
+<body class="Fondo">
+<?php
+include('../Header.php')
+?>
+                                  
+<div class="container">
+    <div class="panel-primary">
+               
+			<!--Nueva Parte--> <!-- Diseño para presentar quien abrio sesión en el encabezado de la página -->
+        <header class="fondologo">
+            <span class="pull-right ColorBienvenida">
+               <?php
+                    echo "Bienvenido " . $_SESSION['usuario'];
+               ?>
+            </span>
+			<div style="background:white">
+			<img src="../img/barra_top.png" alt="Logo" class="img-responsive"></div>
+       </header>
+		<!--hasta aqui nueva Parte-->
+            
+                                                    
+        <div class="panel-heading">
+            <h2>REPORTE A SOLICITAR</h2><br/>      <!--cambiar el nombre el seguro a solicitar -->
+            <img src="../img/reporte.jpg" class="imagendeseguro">  <!--ingresar el nombre de la imagen que usaron
+            con extension-ejemplo nombre:obligatorio.jpg-->
+             	
+              El Seguro de Responsabilidad Civil por daños a terceros de vehículo, es un seguro con coberturas básicas cuya contratación se establece de forma
+              obligatoria para los propietarios de vehículos automotor sin excepción. 
+
+              El objetivo del El Seguro de Responsabilidad Civil por daños a terceros de vehículo, es proporcionar a sus beneficiarios finales, la protección y
+              amparo frente a la responsabilidad civil legal del conductor del vehículo automotor declarado responsable del accidente por la Autoridad
+              de Aplicación de la presente Ley, frente a las eventuales lesiones corporales, incapacidad permanente, parcial o muerte, así como los daños
+              a la propiedad que pueda causarles a los terceros afectados.<br/><br/>
+            
+              </p>
+             
+             <p class="parrafo">
+              <h4> ¿Que cubre este Seguro? </h4>
+                  <ul>
+                    <li>Muerte o Lesiones a una Persona: US$2,500.00  </li>
+                    <li>Muerte o Lesiones a dos o más Personas: US$5,000.00   </li>
+                    <li>Daños Materiales a bienes de Terceros: US$2,500.00 </li>
+                  </ul>
+             </p>
+            
+            <div class="panel-body">               <!--hasta aqui es igual en todas las paginas-->
+                <form method="post" action="../Controlador/ObligatorioControlador.php"> <!--Cambiar por el nombre del archiv controlador
+                que pertenece a este formulario ejemplo:ObligatorioControlador--> 
+                  <h3> Datos Personales</h3> <!--Se agrega esto para diferencia las categoria de datos si son datos de usuario o de la empresa-->
+                   
+                   <!--PRIMERA FILA-->
+                    <span>  <!--Nota:Un span es una linea-->
+                        <table  style="border-collapse: separate; border-spacing: 10px"> <!--tabla determina filas y columnas-->
+                          
+                         <tr>  <!--se abre fila-->
+                           <th>Nombre/Apellidos</th>  <!--se abre y cierra encabezado-->
+                           <th>Cedula</th>
+                           <th>Fecha de Nacimiento</th>
+                           <th>Telefono</th>
+                           <th>Email</th>
+                           <th>Direccion</th>
+                        </tr> <!--se cierra fila-->
+
+                          <tr> <!--no cambiar style="color:black" de abajo-->
+                            <td style="color:black"><input type="text" size="17" name="nom" required="required" maxlength="25" placeholder="Carlos Salamanca"></td>
+                            <td style="color:black"><input type="text" size="13" name="cedula" required="required" maxlength="16" placeholder="281-240568-0058S"> </td>
+                            <td style="color:black"><input type="text" size="12" name="fechanac" required="required" maxlength="30" placeholder="28-Feb-1994"></td>
+                            <td style="color:black"><input type="text" size="10" name="tel" required="required" maxlength="8" placeholder="22281908"></td>
+                            <td style="color:black"><input type="text" size="25" name="correo" required="required" maxlength="30" placeholder="Example_nicaragua@gmail.com"></td>
+                            <td style="color:black"><input type="text" size="40" name="dir" required="required" maxlength="100" placeholder="Polideportivo España 1c arriba"></td>
+                          </tr>
+                          
+                        </table>
+                        
+                        <br>
+                    </span>
+                    
+                     <!--SEGUNDA FILA-->
+                    
+                     <span>
+                        <table style="border-collapse: separate; border-spacing: 10px">
+                            <tr>
+                               <th>Sexo</th>  <!--se abre y cierra encabezado-->
+                               <th>Profesion</th>
+                               <th>A que se dedica</th>
+                           
+                            </tr>
+
+                             <tr>
+                                <td style="color:black"> <select name="Sexo" required> <!--este es un select cajta para selccion "poner required"-->
+                                  <option selected value="">Seleccione una opcion</option> <!--se debe poner esta opcion sin valor para
+                                  poder ser requerida cuando se presione el boton que esta al final -->
+                                  <option> Femenino </option>
+                                  <option> Masculino </option>
+                                      </select>
+                                </td>
+                                 <td style="color:black"><input type="text" size="10" name="profesion" maxlength="15" placeholder="Arquitecto"></td>
+                                <td style="color:black"><input type="text" size="10" name="dedicacion" required="required" maxlength="15" placeholder="Comerciante"></td>
+                             </tr>
+                       </table>
+                        <br>
+                    </span>
+					 
+					                   
+                     
+                    <h3> Datos Financieros y Laborales</h3>
+                     <!--TERCERA FILA-->
+                     
+                    <span>
+                      <table style="border-collapse: separate; border-spacing: 10px">
+                        <tr>
+                               <th >Condicion Salarial</th>  <!--se abre y cierra encabezado-->
+                               <th>Promedio Ingresos Mensuales C$</th>
+                               
+                           
+                        </tr>
+                        
+                        <tr>
+                           <td style="color:black">
+                              <select name="tipo" required>  
+                                  <option selected value="">Seleccione una opcion</option>
+                                  <option>Negocio Propio  </option>
+                                  <option>Asalariado </option>
+                               </select>
+                            </td>
+                           
+                           <td style="color:black">
+                              <select name="promedio" required>  
+                                <option selected value="">Seleccione una opcion</option>
+                                <option> 0 - 10.800 </option>
+                                <option> 10.801 - 14.500  </option>
+                                <option> 14.501 - 20.000 </option>
+                                <option> 20.001 - 28.000 </option>
+                                <option> 28.001  - a más </option>
+                              </select>
+                 
+                           </td>
+                        </tr>
+                        
+                    <br>
+                    </span>
+                    
+                    
+                    <span>
+                       <table>
+                          <table style="border-collapse: separate; border-spacing: 10px">
+                        <tr>
+                               <th>Valor de Vivienda $</th>  <!--se abre y cierra encabezado-->
+                               <th>Tipo de Vehiculo:</th>
+                               <th>Marca</th>
+                               <th>Modelo</th>
+                               <th>Valor de Vehiculo $</th>
+                               
+                           
+                        </tr>
+                         
+                        <tr>
+                          <td style="color:black"><input type="text" size="13" name="vivienda" required="required" maxlength="10" placeholder="100,000"></td>
+                         <td style="color:black"><select name="tipo" required>  
+                           <option selected value="">Seleccione una opcion</option>
+                           <option>Camión  </option>
+                           <option>Automóvil </option>
+                           <option>Camioneta </option>
+                           </select></td>
+                         <td style="color:black"><select name="marca" required>  
+                            <option selected value="">Seleccione una opcion</option>
+                            <option>CHEVROLET  </option>
+                            <option>DODGE  </option>
+                            <option>FORD  </option>
+                            <option>HONDA  </option>
+                            <option>HYUNDAI  </option>
+                            <option>ISUZU  </option>
+                            <option>JEEP </option>
+                            <option>LAND ROVER  </option>
+                            <option>MERCEDES BENZ  </option>
+                            <option>MITSUBISHI </option>
+                            <option>NISSAN  </option>
+                            <option>SUZUKI  </option>
+                            <option>TOYOTA  </option>
+                            <option>MAZDA  </option>  
+                            </select></td>
+                           
+                            <td style="color:black"><select name="modelo" required>  
+                            <option selected value="">Seleccione</option>
+                            <option>A1  </option>
+                            <option>A2 </option>
+                            <option>A3 </option>
+                            <option>A4  </option>
+                            <option>A5 </option>
+                             <option>A6 </option>
+                            <option>Q3  </option>
+                            <option>Q5  </option>
+                            <option>Q7 </option>
+                           <option>RS3  </option>
+                            <option>S6  </option></td>
+                          <td style="color:black"><input type="text" size="13" name="automovil" required="required" maxlength="10" placeholder="25,000"></td>
+                        </tr>
+                       
+
+                      </table>
+                    <br>
+                    </span>
+                                     
+                                          
+                      <span>
+                              <input type="submit" name="solicitar" class="btn btn-info" value="Solicitar">
+                              <input type="submit" name="actualizar" class="btn btn-info" value="Actualizar">
+                              <input type="submit" name="limpiar" class="btn btn-info" value="Limpiar">
+                        <br>
+                    </span>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+

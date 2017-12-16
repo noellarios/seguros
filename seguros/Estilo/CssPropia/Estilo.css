@@ -1,0 +1,47 @@
+.Fondo{
+    background: #99ABBB;
+}
+
+.Fondo1{
+    background: #0096D6;
+}
+
+.fondologo{
+    background: #355c9d;
+}
+
+
+.ColorLetra{
+    color: black;
+}
+
+.ColorBienvenida{
+    color: red;
+    font-size: 15px;
+    font-family: sans-serif;
+}
+
+.FondoTabla{
+    background-color: #690083;
+}
+
+
+
+.alertify-log-custom {
+			background: blue;
+}
+
+#Encabezado{
+    color: #660000;
+    font-size: large;
+    border:1px dashed #A64E06;
+    box-shadow:0px 0px 10px #000;
+    text-align:center;
+    text-shadow:3px 3px 3px #999999;
+}
+
+
+.imagen{
+    width:200px;
+    margin: 0 auto 0 auto;
+}
